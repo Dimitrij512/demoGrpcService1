@@ -33,7 +33,7 @@
 
 		<dependency>
 			<groupId>com.grpc.student.service</groupId>
-			<artifactId>studentservice</artifactId>
+			<artifactId>service2</artifactId>
 			<version>0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
