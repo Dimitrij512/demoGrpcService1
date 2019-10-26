@@ -6,7 +6,7 @@ Here you can see the benefits of GRPC like:
 - cancel propagation
 - client flow control
 
-![logo](https://github.com/Dimitrij512/demoGrpcService1/raw/master/resources/demoimage.png)
+![logo](https://github.com/Dimitrij512/demoGrpcService1/raw/master/src/main/resources/demoimage.png)
 
 
 Settings:
