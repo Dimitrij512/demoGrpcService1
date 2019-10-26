@@ -59,7 +59,7 @@ public class DemoApplication {
 	}
 
 	private static void testDeadLinePropagation() {
-		System.out.println("Choose deadline time");
+		System.out.println("Choose deadline time in ms");
 		Scanner scanner = new Scanner(System.in);
 		try {
 			System.out.println(client.getStudentByAge(32, Ints.tryParse(scanner.nextLine())));
@@ -77,6 +77,7 @@ public class DemoApplication {
 			System.exit(0);
 		} catch (StatusRuntimeException sre) {
 			System.out.println("!!! CANCELED !!!!!");
+			System.out.println(sre.getStatus().getDescription());
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -104,7 +105,10 @@ public class DemoApplication {
 		CallStreamObserver<StudentStatusRequest> observer =
 			(CallStreamObserver<StudentStatusRequest>) client.findStudentByStatusStream(streamObserver);
 
-		observer.onNext(StudentStatusRequest.newBuilder().setStatus(true).build());
+		observer.onNext(StudentStatusRequest.newBuilder()
+				.setStatus(true)
+				.build());
+
 		observer.request(DEFAULT_REQUESTS);
 
 		boolean keepRunning = true;
